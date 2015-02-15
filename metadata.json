@@ -1,0 +1,15 @@
+{
+  "name": "bzed-maxscale",
+  "version": "0.0.1",
+  "author": "Bernd Zeimetz",
+  "summary": "installs MariaDB MaxScale",
+  "license": "Apache 2.0",
+  "source": "https://www.github.com/bzed/bzed-maxscale/",
+  "project_page": "https://www.github.com/bzed/bzed-maxscale/",
+  "issues_url": "https://www.github.com/bzed/bzed-maxscale/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 2.2.0"},
+    {"name":"puppetlabs-apt","version_requirement":">= 1.7.0"}
+  ]
+}
+
