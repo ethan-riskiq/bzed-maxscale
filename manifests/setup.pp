@@ -5,7 +5,7 @@ define maxscale::setup (
     if $setup_mariadb_repository {
         case $::osfamily {
             'Debian' : {
-                ::maxscale::apt { $package_name : }
+                ::maxscale::setup::apt { $package_name : }
             }
             'Redhat' : {
                 fail('sorry, not implemented yet')

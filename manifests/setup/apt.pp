@@ -1,4 +1,4 @@
-define maxscale::apt (
+define maxscale::setup::apt (
     $package_name = $name
 ) {
 
@@ -8,7 +8,7 @@ define maxscale::apt (
         fail('Architectures != amd64 are not supported by the maxscale package repository!')
     }
 
-    case $::osname {
+    case $::lsbdistid {
         'Debian' : {
             if ($::lsbmajdistrelease !~ /^(6|7)$/) {
                 fail ('This Debian release is not supported by the MariaDB MaxScale repository!')
