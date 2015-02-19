@@ -1,6 +1,6 @@
 {
   "name": "bzed-maxscale",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Bernd Zeimetz",
   "summary": "installs MariaDB MaxScale",
   "license": "Apache-2.0",
