@@ -8,7 +8,7 @@ define maxscale::apt (
         fail('Architectures != amd64 are not supported by the maxscale package repository!')
     }
 
-    case $osname {
+    case $::osname {
         'Debian' : {
             if ($::lsbmajdistrelease !~ /^(6|7)$/) {
                 fail ('This Debian release is not supported by the MariaDB MaxScale repository!')
@@ -19,25 +19,28 @@ define maxscale::apt (
                 fail ('This Ubuntu release is not supported by the MariaDB MaxScale repository!')
             }
         }
+        default : {
+            fail ('This Debian based distribution is not supported by the MariaDB MaxScale repository!')
+        }
     }
 
     ::apt::key { 'mariadb-maxscale' :
-        key => $::maxscale::params::gpg_key_id,
-        key_server => 'keys.gnupg.net'
+        key         => $::maxscale::params::gpg_key_id,
+        key_server  => 'keys.gnupg.net'
     }
 
     ::apt::source { 'mariadb-maxscale' :
-        architecture => 'amd64',
-        location => "${::maxscale::params::repository_base_url}DEB",
-        include_src => false,
-        include_deb => true,
-        repos => 'main',
-        release => $::lsbdistcodename,
-        require => ::Apt::Key['mariadb-maxscale']
+        architecture    => 'amd64',
+        location        => "${::maxscale::params::repository_base_url}DEB",
+        include_src     => false,
+        include_deb     => true,
+        repos           => 'main',
+        release         => $::lsbdistcodename,
+        require         => ::Apt::Key['mariadb-maxscale']
     }
 
     package { $package_name :
-        ensure => installed,
+        ensure  => installed,
         require => ::Apt::Source['mariadb-maxscale']
     }
     
