@@ -8,7 +8,7 @@ define maxscale::setup (
                 ::maxscale::setup::apt { $package_name : }
             }
             'Redhat' : {
-                fail('sorry, not implemented yet')
+                ::maxscale::setup::yum { $package_name : }
             }
             'Suse' : {
                 fail('sorry, not implemented yet')
