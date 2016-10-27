@@ -6,9 +6,8 @@ define maxscale::setup::yum (
 
     yumrepo { 'mariadb-maxscale':
       baseurl        => 'http://yum.mariadb.org/10.1/centos7-amd64',
-      gpgkey         => 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB',
       enabled  => '1',
-      gpgcheck => '1',
+      gpgcheck => '0',
       priority => '1',
       descr          => "MariaDB repo",
 }
